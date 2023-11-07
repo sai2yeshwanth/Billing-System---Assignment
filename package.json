@@ -1,0 +1,29 @@
+{
+  "name": "billing-system---assignment",
+  "version": "1.0.0",
+  "description": "Billing system: - The project should have 4 separate components apart from the app component - First, the user should able to add items to the Database with name and price data - Any new/edited items added should notify the new bill component and update the item selection dropdown - All the four components are interconnected and should bind data with each other. - These are the connections   - Once the item is added/edited the item data in the new bill component is updated   - Once the bill is generated it should update the My bills component and Sales component - The add item and select item in the new bill component are dialogs with validations.   - Item name cannot be empty and price cannot be less than 1   - Quantity cannot be less than 1 - On click of checkout new component should be reset and the bill to be generated and my bills component would get updated. This would indeed update the sales component. - There must be two tables in the database. One for bills and one for items.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/app.ts",
+    "start": "tsc && node dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "sai yeshwanth muddaragadda",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1",
+    "pg": "^8.11.3",
+    "sequelize": "^6.34.0",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.8.10",
+    "@types/sequelize": "^4.28.17",
+    "typescript": "^5.2.2"
+  }
+}
