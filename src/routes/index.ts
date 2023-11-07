@@ -1,7 +1,5 @@
-import { Router, Request, Response } from 'express'
+import { Router, Request, Response } from "express";
 
+const routes = Router();
 
-
-const routes = Router()
-
-export default routes
+export default routes;
