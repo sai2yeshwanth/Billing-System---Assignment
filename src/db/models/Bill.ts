@@ -1,30 +1,28 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelizeConnection from "../config";
 
-interface ItemAttributes {
+interface BillAttributes {
   id: number;
-  name: string;
-  price: number;
+  bill_number: string;
 
   created_at?: Date;
   updated_at?: Date;
   deleted_at?: Date;
 }
 
-export interface ItemInput extends Optional<ItemAttributes, "id"> {}
+export interface billInput extends Optional<BillAttributes, "id"> {}
 
-export interface ItemOutput extends Required<ItemAttributes> {}
+export interface billOutput extends Required<BillAttributes> {}
 
-class Item extends Model<ItemAttributes, ItemInput> implements ItemAttributes {
+class Bill extends Model<BillAttributes, billInput> implements BillAttributes {
   public id!: number;
-  public name!: string;
-  public price!: number;
+  public bill_number!: string;
 
   public readonly created_at!: Date;
   public readonly updated_at!: Date;
   public readonly deleted_at!: Date;
 }
-Item.init(
+Bill.init(
   {
     id: {
       type: DataTypes.INTEGER.UNSIGNED,
@@ -33,11 +31,8 @@ Item.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    bill_number: {
       type: DataTypes.STRING,
-    },
-    price: {
-      type: DataTypes.INTEGER,
     },
   },
 
@@ -48,4 +43,4 @@ Item.init(
   }
 );
 
-export default Item;
+export default Bill;

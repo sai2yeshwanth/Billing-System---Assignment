@@ -1,30 +1,32 @@
 import { DataTypes, Model, Optional } from "sequelize";
 import sequelizeConnection from "../config";
 
-interface ItemAttributes {
+interface OrderItemAttributes {
   id: number;
-  name: string;
-  price: number;
+  bill_id: number;
+  item_id: number;
+  quantity: number;
 
   created_at?: Date;
   updated_at?: Date;
   deleted_at?: Date;
 }
 
-export interface ItemInput extends Optional<ItemAttributes, "id"> {}
+export interface OrderItemInput extends Optional<OrderItemAttributes, "id"> {}
 
-export interface ItemOutput extends Required<ItemAttributes> {}
+export interface OrderItemOutput extends Required<OrderItemAttributes> {}
 
-class Item extends Model<ItemAttributes, ItemInput> implements ItemAttributes {
+class OrderItem extends Model<OrderItemAttributes, OrderItemInput> implements OrderItemAttributes {
   public id!: number;
-  public name!: string;
-  public price!: number;
+  public bill_id!: number;
+  public item_id!: number;
+  public quantity!:number
 
   public readonly created_at!: Date;
   public readonly updated_at!: Date;
   public readonly deleted_at!: Date;
 }
-Item.init(
+OrderItem.init(
   {
     id: {
       type: DataTypes.INTEGER.UNSIGNED,
@@ -33,12 +35,16 @@ Item.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-    },
-    price: {
+    bill_id: {
       type: DataTypes.INTEGER,
     },
+    item_id: {
+      type: DataTypes.INTEGER,
+    },
+    quantity:{
+      type: DataTypes.INTEGER,
+
+    }
   },
 
   {
@@ -48,4 +54,4 @@ Item.init(
   }
 );
 
-export default Item;
+export default OrderItem;
