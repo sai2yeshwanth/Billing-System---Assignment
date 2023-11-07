@@ -1,6 +1,5 @@
 # Billing-System---Assignment
 Billing system:
-- Please find the above screenshot of the sample design of the task
 - The project should have 4 separate components apart from the app component
 - First, the user should able to add items to the Database with name and price data
 - Any new/edited items added should notify the new bill component and update the item selection dropdown
